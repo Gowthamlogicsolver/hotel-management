@@ -4,6 +4,9 @@ import mysql from "mysql";
 const app = express();
 app.use(express.json())
 
+// app.use(bodyParser.json());
+// app.use(cors());
+
 app.use(
     cors({
         origin: "*",
@@ -32,14 +35,20 @@ const db = mysql.createConnection({
     console.log('Connected to MySQL database!');
   });
   
-  app.get('/users', (req, res) => {
-    const sql = 'SELECT * FROM demo';
-    db.query(sql, (err, result) => {
-      if (err) {
-        throw err;
-      }
-      res.send(result);
-    });
+  // app.get('/users', (req, res) => {
+  //   const sql = 'SELECT * FROM demo';
+  //   db.query(sql, (err, result) => {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     res.send(result);
+  //   });
+  // });
+  app.post('/signup', (req, res) => {
+    const { username, password } = req.body;
+    // validate email and password
+    // save user to database
+    res.send('Signup successful!');
   });
 
   const port = 3001;
