@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react' 
 import './App.css'
+import Login from './login';
 
 function App() {
   const url = "http://localhost:3001/"
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <h1>{title}</h1>
+      <Login />
     </div>
   )
 }
